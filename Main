@@ -1,4 +1,4 @@
-var list = [1,0,0,1,0,1,1,0,1,0,0,1,0,1]
+var list = [1,0,0,1,0,1,1,0,1,0,0,1,0,1,0,0,1,1]
 var length = []
 var x1_core = []
 var x2_core = []
@@ -27,6 +27,8 @@ for(var i = 0; i < list.length; i++){
     var pos = i * 20
     if(list[i] == 1){
         x1_core.push(0 + pos)
+    } else {
+        x1_core.push("no")
     }
 }
 
@@ -35,7 +37,10 @@ for(var i = 0; i < list.length; i++){
     var pos = i * 20 + 20
     if(list[i] == 1){
         x2_core.push(0 + pos)
+    } else {
+        x2_core.push("no")
     }
+    
 }
 
 // sets a variable equal to the number of ones in the list
@@ -48,26 +53,6 @@ for(var i  = 0; i < list.length; i++){
 println(x1_core)
 print(x2_core)
 
-// draws lines around all the boxes
-for(var i = 0; i < numOnes; i ++){
-    
-    var line = new Line(x1_core[i], 0, x2_core[i], 0)
-    line.setColor("red")
-    add(line)
-    
-    line = new Line(x1_core[i], 20, x2_core[i], 20)
-    line.setColor("red")
-    add(line)
-    
-    line = new Line(x1_core[i], 0, x1_core[i], 20)
-    line.setColor("red")
-    add(line)
-    
-    line = new Line(x1_core[i] + 20, 0, x1_core[i] + 20, 20)
-    line.setColor("red")
-    add(line)
-    
-}
 
 var player = new Rectangle(10,10);
 player.setPosition(0,50)
@@ -104,9 +89,18 @@ function keyDown(e) {
 
 }
 
+var zaz
+
 function check_movement(){
-    
-    if(player.getX() < x1_core[x] || player.getX() > x2_core[x]){
-        
+    zaz = relitive_x / 20
+    println(zaz)
+    println(Math.floor(zaz))
+    if(player.getY() > 20 || x1_core[Math.floor(zaz)] == "no"){
+        player.move(0,-3)
+        if(player.getX() > x1_core[Math.floor(zaz)] && player.getX() > x1_core[Math.floor(zaz -1) + 20]|| x1_core[Math.floor(zaz)] == "no"){
+            player.move(0,-3)
+        }
     }
+    
+    
 }
