@@ -1,0 +1,112 @@
+var list = [1,0,0,1,0,1,1,0,1,0,0,1,0,1]
+var length = []
+var x1_core = []
+var x2_core = []
+var numOnes = 0
+
+
+
+
+//makes all the rectangles
+for(var i = 0; i < list.length; i++){
+    
+    var pos = i * 20
+    if(list[i] == 1){
+        var rect = new Rectangle(20,20)
+        rect.setPosition(0 + pos,0)
+        add(rect)
+    }
+    
+    length.push(i)
+    
+    
+}
+
+//makes the value of the x1 positions
+for(var i = 0; i < list.length; i++){
+    var pos = i * 20
+    if(list[i] == 1){
+        x1_core.push(0 + pos)
+    }
+}
+
+//makes the value of the x2 positions
+for(var i = 0; i < list.length; i++){
+    var pos = i * 20 + 20
+    if(list[i] == 1){
+        x2_core.push(0 + pos)
+    }
+}
+
+// sets a variable equal to the number of ones in the list
+for(var i  = 0; i < list.length; i++){
+    if(list[i]==1){
+        numOnes = numOnes + 1
+    }
+}
+
+println(x1_core)
+print(x2_core)
+
+// draws lines around all the boxes
+for(var i = 0; i < numOnes; i ++){
+    
+    var line = new Line(x1_core[i], 0, x2_core[i], 0)
+    line.setColor("red")
+    add(line)
+    
+    line = new Line(x1_core[i], 20, x2_core[i], 20)
+    line.setColor("red")
+    add(line)
+    
+    line = new Line(x1_core[i], 0, x1_core[i], 20)
+    line.setColor("red")
+    add(line)
+    
+    line = new Line(x1_core[i] + 20, 0, x1_core[i] + 20, 20)
+    line.setColor("red")
+    add(line)
+    
+}
+
+var player = new Rectangle(10,10);
+player.setPosition(0,50)
+player.setColor("green")
+add(player)
+
+function start(){
+    keyDownMethod(keyDown);
+}
+
+var relitive_x = 0
+
+function keyDown(e) {
+    
+    
+    if (e.keyCode == Keyboard.letter('W')) {
+        check_movement()
+    }
+    
+    
+    if (e.keyCode == Keyboard.letter('A')) {
+        player.move(-3, 0);
+        relitive_x = relitive_x - 3
+    }
+    
+    if (e.keyCode == Keyboard.letter('S')) {
+        player.move(0, 3);
+    }
+    
+    if (e.keyCode == Keyboard.letter('D')) {
+        player.move(3, 0);
+        relitive_x = relitive_x + 3
+    }
+
+}
+
+function check_movement(){
+    
+    if(player.getX() < x1_core[x] || player.getX() > x2_core[x]){
+        
+    }
+}
