@@ -142,8 +142,6 @@ function check_movement_a(){
     get_row_based_on_y_a()
     update_xcores_a()
   
-   println(x1_core[Math.floor(zaz)])
-    //println(x1_core)
     if( x1_core[Math.floor(zaz)] == "no"){
         player.move(-10,0)
         relitive_x = relitive_x - 10;
