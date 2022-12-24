@@ -1,106 +1,309 @@
-var list = [1,0,0,1,0,1,1,0,1,0,0,1,0,1,0,0,1,1]
+var list = [
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+]
 var length = []
 var x1_core = []
-var x2_core = []
-var numOnes = 0
+var y1_core = []
+var row = []
 
-
+var row0 = list[0]
+var col_y = []
+var ypos = 0
+var a_press = 0 
 
 
 //makes all the rectangles
 for(var i = 0; i < list.length; i++){
-    
-    var pos = i * 20
-    if(list[i] == 1){
-        var rect = new Rectangle(20,20)
-        rect.setPosition(0 + pos,0)
-        add(rect)
-    }
+    row = list[i];
+    //println(row)
+     
+    for(var j =0; j < row.length; j++){
+        var pos = j * 20
+        if(row[j] == 1){
+            var rect = new Rectangle(20,20)
+            rect.setPosition(0 + pos,0+ ypos)
+            add(rect)
+        }
     
     length.push(i)
+    }
+    ypos = ypos + 20
     
     
 }
-
-//makes the value of the x1 positions
-for(var i = 0; i < list.length; i++){
-    var pos = i * 20
-    if(list[i] == 1){
-        x1_core.push(0 + pos)
-    } else {
-        x1_core.push("no")
-    }
-}
-
-//makes the value of the x2 positions
-for(var i = 0; i < list.length; i++){
-    var pos = i * 20 + 20
-    if(list[i] == 1){
-        x2_core.push(0 + pos)
-    } else {
-        x2_core.push("no")
-    }
-    
-}
-
-// sets a variable equal to the number of ones in the list
-for(var i  = 0; i < list.length; i++){
-    if(list[i]==1){
-        numOnes = numOnes + 1
-    }
-}
-
-println(x1_core)
-print(x2_core)
-
 
 var player = new Rectangle(10,10);
-player.setPosition(0,50)
+player.setPosition(20,70)
 player.setColor("green")
 add(player)
 
 function start(){
     keyDownMethod(keyDown);
+    setTimer(grav,90)
 }
 
-var relitive_x = 0
+var relitive_x = 20
+var relitive_right = 10
+var relitive_y = 70
+
 
 function keyDown(e) {
     
     
     if (e.keyCode == Keyboard.letter('W')) {
-        check_movement()
+        
+        check_movement_w()
+        
     }
     
     
     if (e.keyCode == Keyboard.letter('A')) {
-        player.move(-3, 0);
-        relitive_x = relitive_x - 3
+        stopTimer(right)
+        if(a_press < 1){
+            setTimer(left,100);
+            a_press = a_press + 1
+        } else {
+            stopTimer(left)
+            a_press = 0
+        }
+        
+        
+        
     }
     
     if (e.keyCode == Keyboard.letter('S')) {
-        player.move(0, 3);
+        
+        check_movement_s()
+        
     }
     
     if (e.keyCode == Keyboard.letter('D')) {
-        player.move(3, 0);
-        relitive_x = relitive_x + 3
+        stopTimer(left)
+        if(a_press < 1){
+            setTimer(right,100);
+            a_press = a_press + 1
+        } else {
+            stopTimer(right)
+            a_press = 0
+        }
     }
 
 }
 
 var zaz
 
-function check_movement(){
+
+function check_movement_w(){
+    
     zaz = relitive_x / 20
-    println(zaz)
-    println(Math.floor(zaz))
-    if(player.getY() > 20 || x1_core[Math.floor(zaz)] == "no"){
-        player.move(0,-3)
-        if(player.getX() > x1_core[Math.floor(zaz)] && player.getX() > x1_core[Math.floor(zaz -1) + 20]|| x1_core[Math.floor(zaz)] == "no"){
-            player.move(0,-3)
+    get_row_based_on_y_w()
+    update_xcores()
+    //println(x1_core)
+    
+        
+    if(x1_core[Math.floor(zaz)] == "no"){
+        stopTimer(grav)
+        player.move(0,-10)
+        relitive_y = relitive_y - 10;
+        
+    }
+    
+
+    
+    
+}
+
+function check_movement_s(){
+    
+    zaz = relitive_x / 20
+    get_row_based_on_y_s()
+    update_xcores()
+    //println(x1_core)
+    
+
+    if( x1_core[Math.floor(zaz)] == "no"){
+        player.move(0,10)
+        relitive_y = relitive_y + 10;
+            
+ 
+    }
+    
+ 
+}
+
+function check_movement_a(){
+    
+    zaz = relitive_right / 20
+    get_row_based_on_y_a()
+    update_xcores_a()
+  
+   
+    if( x1_core[Math.floor(zaz)] == "no"){
+        player.move(-10,0)
+        relitive_x = relitive_x - 10;
+        relitive_right = relitive_right - 10;
+            
+    }
+   
+
+}
+
+function check_movement_d(){
+    zaz = relitive_x / 20
+    
+    get_row_based_on_y_d()
+    update_xcores()
+    //println(x1_core)
+    
+    if( x1_core[Math.ceil(zaz)] == "no"){
+        player.move(10,0)
+        relitive_x = relitive_x + 10;
+        relitive_right = relitive_right + 10
+            
+    }
+}
+    
+
+
+var zez = 0
+
+
+function get_row_based_on_y_w(){
+    
+    zez = relitive_y / 20
+    
+    zez = Math.ceil(zez) 
+
+    row0 = list[zez -1];
+
+    
+}
+
+function get_row_based_on_y_s(){
+
+    zez = relitive_y / 20
+    zez = Math.ceil(zez)
+    row0 = list[zez];
+
+}
+
+function get_row_based_on_y_a(){
+    
+    
+    zez = relitive_y / 20
+    zez = Math.floor(zez)
+    row0 = list[zez];
+    
+    
+    
+}
+
+function get_row_based_on_y_d(){
+    
+    zez = relitive_y / 20
+    zez = Math.floor(zez)
+    row0 = list[zez];
+
+    
+}
+
+
+
+
+
+function update_xcores(){
+    x1_core = []
+    //makes the value of the x1 positions
+    for(var i = 0; i < row0.length; i++){
+        var pos = i * 20
+        if(row0[i] == 1){
+            x1_core.push(0 + pos)
+        } else {
+            x1_core.push("no")
         }
     }
     
+
+}
+
+function update_xcores_a(){
+    x1_core = []
+    //makes the value of the x1 positions
+    for(var i = 0; i < row0.length; i++){
+        var pos = i * 20
+        if(row0[i] == 1){
+            x1_core.push(0 + pos)
+        } else {
+            x1_core.push("no")
+        }
+    }
     
+
+}
+
+function grav(){
+    zaz = relitive_x / 20
+    get_row_based_on_y_s()
+    update_xcores()
+    //println(x1_core)
+    
+
+    if( x1_core[Math.floor(zaz)] == "no"){
+        player.move(0,10)
+        relitive_y = relitive_y + 10;
+            
+ 
+    }
+}
+
+function left(){
+    zaz = relitive_right / 20
+    get_row_based_on_y_a()
+    update_xcores_a()
+  
+   
+    if( x1_core[Math.floor(zaz)] == "no"){
+        player.move(-10,0)
+        relitive_x = relitive_x - 10;
+        relitive_right = relitive_right - 10;
+            
+    } 
+}
+
+function right(){
+    zaz = relitive_x / 20
+    
+    get_row_based_on_y_d()
+    update_xcores()
+    //println(x1_core)
+    
+    if( x1_core[Math.ceil(zaz)] == "no"){
+        player.move(10,0)
+        relitive_x = relitive_x + 10;
+        relitive_right = relitive_right + 10
+            
+    }
 }
