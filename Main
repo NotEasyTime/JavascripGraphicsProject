@@ -1,7 +1,7 @@
 var list = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
@@ -12,18 +12,46 @@ var list = [
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+]
+
+var list2 = [
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ]
+
 var length = []
 var x1_core = []
 var y1_core = []
@@ -32,35 +60,21 @@ var row = []
 var row0 = list[0]
 var col_y = []
 var ypos = 0
+var a_press = 0 
+
+var current_list = list
 
 
-
-//makes all the rectangles
-for(var i = 0; i < list.length; i++){
-    row = list[i];
-    //println(row)
-     
-    for(var j =0; j < row.length; j++){
-        var pos = j * 20
-        if(row[j] == 1){
-            var rect = new Rectangle(20,20)
-            rect.setPosition(0 + pos,0+ ypos)
-            add(rect)
-        }
-    
-    length.push(i)
-    }
-    ypos = ypos + 20
-    
-    
-}
 
 var player = new Rectangle(10,10);
 player.setPosition(20,70)
 player.setColor("green")
-add(player)
+
+
+
 
 function start(){
+    add(player)
     keyDownMethod(keyDown);
 }
 
@@ -82,6 +96,7 @@ function keyDown(e) {
     if (e.keyCode == Keyboard.letter('A')) {
         
         check_movement_a()
+        
     }
     
     if (e.keyCode == Keyboard.letter('S')) {
@@ -91,9 +106,15 @@ function keyDown(e) {
     }
     
     if (e.keyCode == Keyboard.letter('D')) {
-        
         check_movement_d()
     }
+    if (e.keyCode == Keyboard.letter('F')) {
+        reset()
+    }
+    if (e.keyCode == Keyboard.letter('G')) {
+        make_rectangles(list)
+    }
+    
 
 }
 
@@ -103,7 +124,7 @@ var zaz
 function check_movement_w(){
     
     zaz = relitive_x / 20
-    get_row_based_on_y_w()
+    get_row_based_on_y_w(current_list)
     update_xcores()
     //println(x1_core)
     
@@ -111,17 +132,21 @@ function check_movement_w(){
     if(x1_core[Math.floor(zaz)] == "no"){
         player.move(0,-10)
         relitive_y = relitive_y - 10;
-            
+        
     }
-
-    
+    if(x1_core[Math.floor(zaz)] == "win"){
+        player.move(0,-10)
+        relitive_y = relitive_y - 10;
+        reset()
+        
+    }
     
 }
 
 function check_movement_s(){
     
     zaz = relitive_x / 20
-    get_row_based_on_y_s()
+    get_row_based_on_y_s(current_list)
     update_xcores()
     //println(x1_core)
     
@@ -132,6 +157,10 @@ function check_movement_s(){
             
  
     }
+    if( x1_core[Math.floor(zaz)] == "win"){
+ 
+ 
+    }
     
  
 }
@@ -139,14 +168,19 @@ function check_movement_s(){
 function check_movement_a(){
     
     zaz = relitive_right / 20
-    get_row_based_on_y_a()
+    get_row_based_on_y_a(current_list)
     update_xcores_a()
   
+   
     if( x1_core[Math.floor(zaz)] == "no"){
         player.move(-10,0)
         relitive_x = relitive_x - 10;
         relitive_right = relitive_right - 10;
             
+    }
+    if( x1_core[Math.floor(zaz)] == "win"){
+ 
+ 
     }
    
 
@@ -155,7 +189,7 @@ function check_movement_a(){
 function check_movement_d(){
     zaz = relitive_x / 20
     
-    get_row_based_on_y_d()
+    get_row_based_on_y_d(current_list)
     update_xcores()
     //println(x1_core)
     
@@ -165,53 +199,54 @@ function check_movement_d(){
         relitive_right = relitive_right + 10
             
     }
+    if( x1_core[Math.floor(zaz)] == "win"){
+ 
+ 
+    }
 }
     
-
 
 var zez = 0
 
 
-function get_row_based_on_y_w(){
+function get_row_based_on_y_w(v){
     
     zez = relitive_y / 20
     
     zez = Math.ceil(zez) 
 
-    row0 = list[zez -1];
+    row0 = v[zez -1];
 
     
 }
 
-function get_row_based_on_y_s(){
+function get_row_based_on_y_s(v){
 
     zez = relitive_y / 20
     zez = Math.ceil(zez)
-    row0 = list[zez];
+    row0 = v[zez];
 
 }
 
-function get_row_based_on_y_a(){
+function get_row_based_on_y_a(v){
     
     
     zez = relitive_y / 20
     zez = Math.floor(zez)
-    row0 = list[zez];
+    row0 = v[zez];
     
     
     
 }
 
-function get_row_based_on_y_d(){
+function get_row_based_on_y_d(v){
     
     zez = relitive_y / 20
     zez = Math.floor(zez)
-    row0 = list[zez];
+    row0 = v[zez];
 
     
 }
-
-
 
 
 
@@ -222,7 +257,11 @@ function update_xcores(){
         var pos = i * 20
         if(row0[i] == 1){
             x1_core.push(0 + pos)
-        } else {
+        } 
+        if(row0[i] == 2){
+            x1_core.push("win")
+        }
+        if(row0[i] == 0){
             x1_core.push("no")
         }
     }
@@ -237,11 +276,91 @@ function update_xcores_a(){
         var pos = i * 20
         if(row0[i] == 1){
             x1_core.push(0 + pos)
-        } else {
+        } 
+        if(row0[i] == 2){
+            x1_core.push("win")
+        }
+        if(row0[i] == 0){
             x1_core.push("no")
         }
     }
     
 
+}
+
+function left(){
+    zaz = relitive_right / 20
+    get_row_based_on_y_a()
+    update_xcores_a()
+  
+   
+    if( x1_core[Math.floor(zaz)] == "no"){
+        player.move(-10,0)
+        relitive_x = relitive_x - 10;
+        relitive_right = relitive_right - 10;
+            
+    } 
+}
+
+function right(){
+    zaz = relitive_x / 20
+    
+    get_row_based_on_y_d()
+    update_xcores()
+    //println(x1_core)
+    
+    if( x1_core[Math.ceil(zaz)] == "no"){
+        player.move(10,0)
+        relitive_x = relitive_x + 10;
+        relitive_right = relitive_right + 10
+            
+    }
+}
+
+
+function reset(){
+    make_rectangles(list2)
+    
+}
+
+//makes all the rectangles
+
+function make_rectangles(x){
+    for(var i = 0; i < x.length; i++){
+    row = x[i];
+    //println(row)
+     
+    for(var j =0; j < row.length; j++){
+        var pos = j * 20
+        if(row[j] == 1){
+            var rect = new Rectangle(20,20)
+            rect.setPosition(0 + pos,0+ ypos)
+            add(rect)
+        }
+        if(row[j] == 2){
+            var rect = new Rectangle(20,20)
+            rect.setPosition(0 + pos,0+ ypos)
+            rect.setColor("red")
+            add(rect)
+        }
+        if(row[j] == 0){
+            var rect = new Rectangle(20,20)
+            rect.setPosition(0 + pos,0+ ypos)
+            rect.setColor("white")
+            add(rect)
+        }
+        
+    
+    length.push(i)
+    }
+    ypos = ypos + 20
+    
+    
+}
+    pos = 0;
+    ypos = 0;
+    add(player);
+    current_list = x;
+    
 }
 
